@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 1 - Moment.js and Lodash</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+</head>
+<body>
+    <h1>Lab 1 - Moment.js and Lodash</h1>
+    <div id="date-output"></div>
+    <div id="array-output"></div>
+
+    <script>
+        var currentDate = moment();
+
+        var formattedDate = currentDate.format("MMMM Do YYYY, h:mm:ss a");
+
+        var futureDate = currentDate.add(10, 'days').format("MMMM Do YYYY");
+
+        document.getElementById('date-output').innerHTML = 
+            "<p>Current Date and Time: " + formattedDate + "</p>" +
+            "<p>Date After Adding 10 Days: " + futureDate + "</p>";
+
+        var numbers = [5, 10, 15, 20, 25];
+        var doubledNumbers = _.map(numbers, function(num) {
+            return num * 2;
+        });
+
+        var minNumber = _.min(numbers);
+
+        document.getElementById('array-output').innerHTML = 
+            "<p>Original Numbers: " + numbers.join(', ') + "</p>" +
+            "<p>Doubled Numbers: " + doubledNumbers.join(', ') + "</p>" +
+            "<p>Smallest Number: " + minNumber + "</p>";
+    </script>
+</body>
+</html>
